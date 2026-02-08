@@ -1,3 +1,85 @@
-## LucaCli 
+# LucaCli
 
-this is intial commit .
+**LucaCli** turns your natural language requests into shell commands using local LLMs (Ollama) or OpenAI. It features built-in safety guardrails to prevent accidental deletion of files.
+
+## 🚀 Quick Start (Installation)
+
+### Windows
+1.  **Run the Installer**:
+    Open PowerShell and run:
+    ```powershell
+    powershell -ExecutionPolicy Bypass -File install.ps1
+    ```
+2.  **Restart your Terminal**
+
+### Linux / macOS
+1.  **Run the Installer**:
+    Open a terminal and run:
+    ```bash
+    chmod +x install.sh
+    ./install.sh
+    ```
+2.  **Restart your Terminal** (or source your shell rc file).
+
+## 🛠️ Configuration
+
+Before first use, tell Luca which AI to use (Ollama, OpenAI, Anthropic, or Gemini):
+
+```bash
+luca --setup
+```
+
+## 💻 Usage
+
+Just type `luca` followed by what you want to do:
+
+```bash
+luca "create a new React project in a folder called app"
+```
+
+```bash
+luca "list all python files"
+```
+
+```bash
+luca "list all python files"
+```
+
+### 🧠 Smart Q&A (New!)
+You can ask Luca questions about your project. It will run the necessary commands and give you a natural language answer.
+
+```bash
+luca "what git branch am i on?"
+# Luca runs 'git rev-parse --abbrev-ref HEAD'
+# Answer: You are currently on the 'main' branch.
+```
+
+### 💡 General Knowledge
+Luca can also answer general questions without running commands.
+
+```bash
+luca "what is 2 + 2"
+# Answer: The answer is 4.
+```
+
+```bash
+luca "explain git commit"
+# Answer: git commit saves your changes to the local repository...
+```
+
+### 🛡️ Safety First
+If you try something dangerous (like deleting files), Luca will **always** ask for confirmation first.
+
+```bash
+luca "delete the temp folder"
+# WARNING: This command is flagged as DESTRUCTIVE.
+# Are you sure you want to execute this? (type 'yes' to confirm):
+```
+
+---
+
+## Manual Installation (Advanced)
+If you prefer to install manually:
+1.  `pip install -r requirements.txt`
+2.  `pip install -e .`
+3.  Add the Python Scripts folder to your PATH manually.
